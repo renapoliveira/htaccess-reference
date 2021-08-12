@@ -1,0 +1,11 @@
+#Redirects URL?query to another URL?different_query keeping the same value
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^/file.php
+RewriteCond %{QUERY_STRING} query=(.*)
+RewriteRule (.*) /?newurl?newquery=%1 [R=301,L]
+
+#Simple Redirect 301
+Redirect 301	/example/ /newurl
+
+#RedirectMatch
+RedirectMatch 301   ^/page/subpage$   /newpage/newsubpage
